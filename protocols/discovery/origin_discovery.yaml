@@ -1,0 +1,305 @@
+matome:
+  title: 白神 Origin Discovery Protocol
+  subtitle:
+    - Landscape Archaeology
+    - Cross-Chat Context Search
+    - Concept Reverse Discovery
+
+  version: 0.1
+  status: experimental
+
+  statement: >
+    Origin Discovery Protocolは、
+    複数のチャット・セッション・記録・的目YAMLに分散した
+    過去の思考・プロトコル・モデル・概念の発生点を探索し、
+    検索結果を文脈へ戻しながら関係を再構成するための
+    発掘型検索プロトコルである。
+
+  core_principle:
+    - 過去ログを最初から読み直さない
+    - 検索結果だけで意味を確定しない
+    - Hitを必ず元のContextへ戻す
+    - 同一チャット内の変化を追跡する
+    - 複数チャット間の概念を照合する
+    - AIの推測と原資料を分離する
+    - 最終的な採用判断は人間が行う
+
+  target:
+    discover:
+      - 過去のプロトコル
+      - 廃棄されたモデル
+      - 未採用モデル
+      - 黒歴史
+      - 概念の原型
+      - プロトコルの発生点
+      - バージョンの境界
+      - 現行仕様へ継承された要素
+
+    sources:
+      - chat_history
+      - matome_yaml
+      - protocol_yaml
+      - repository_artifacts
+
+  search_strategy:
+
+    phase_1_anchor_search:
+      name: アンカー検索
+      purpose: >
+        探索対象を直接示す名称が不明でも、
+        対象を特徴づける語から候補を発見する。
+      query_types:
+        - version
+        - name
+        - keyword
+        - concept
+        - behavior
+        - failure
+        - metaphor
+        - associated_protocol
+      example:
+        target: V6.4
+        anchors:
+          - V6.x
+          - hallucination
+          - Aimai
+          - cooling
+          - "決めないAI"
+          - 名無し
+          - Thread
+          - forgiveness
+          - 節足型
+
+    phase_2_hit_capture:
+      name: Hit採取
+      purpose: >
+        検索で発見した発言を候補Evidenceとして保存する。
+      record:
+        - chat_identifier
+        - timestamp
+        - matched_text
+        - search_anchor
+        - source_location
+        - initial_interpretation
+      rule:
+        - Hitだけで結論を出さない
+
+    phase_3_context_traversal:
+      name: チャット内Context Traversal
+      purpose: >
+        Hitが存在したチャット内を前後に辿り、
+        発言がどのような流れで生まれたかを確認する。
+      traverse:
+        before:
+          - 直前の発言
+          - 話題の開始点
+          - 前段の問題提起
+          - 同一概念の先行表現
+        after:
+          - 直後の発言
+          - 概念の展開
+          - 修正
+          - 否定
+          - 再定義
+          - 次のプロトコルへの接続
+      rule:
+        - 前後文脈を取得するまで意味を確定しない
+
+    phase_4_context_trail:
+      name: Context Trail生成
+      purpose: >
+        一つのHitを点として扱わず、
+        同一チャット内での概念変化を線として記録する。
+      structure:
+        - origin_statement
+        - problem_recognition
+        - response
+        - correction
+        - reinterpretation
+        - derived_concept
+        - next_transition
+
+    phase_5_cross_chat_search:
+      name: Cross-Chat Linking
+      purpose: >
+        同一概念または類似概念を別チャット・別セッションから探索する。
+      search:
+        - exact_term
+        - synonym
+        - metaphor
+        - behavior
+        - protocol_name
+        - version
+        - related_concept
+      rule:
+        - 別チャットの一致だけでは同一概念と確定しない
+
+    phase_6_concept_clustering:
+      name: Concept Clustering
+      purpose: >
+        複数の検索結果を概念単位で束ねる。
+      relation_types:
+        - same
+        - predecessor
+        - successor
+        - branch
+        - reinterpretation
+        - rejection
+        - archived
+        - unknown
+      output:
+        - concept_cluster
+        - related_hits
+        - context_trails
+        - candidate_lineage
+
+    phase_7_reverse_version_search:
+      name: Version Reverse Search
+      purpose: >
+        バージョン番号が分からない対象を、
+        特徴・挙動・問題意識から逆算する。
+      input:
+        - known_features
+        - failure_modes
+        - terminology
+        - associated_protocols
+        - later_concepts
+      method:
+        - version_range_search
+        - feature_combination_search
+        - historical_context_search
+        - predecessor_successor_search
+      example:
+        unknown:
+          - V6.4
+        known:
+          - hallucination
+          - cooling
+          - "決めないAI"
+          - Aimai
+          - Thread
+
+    phase_8_evidence_separation:
+      name: Evidence Separation
+      purpose: >
+        発掘された資料と、AIによる解釈・推測を分離する。
+      evidence_levels:
+        A:
+          name: Primary Evidence
+          definition:
+            - 原文
+            - 原チャット
+            - 原YAML
+            - 原ファイル
+        B:
+          name: Context Evidence
+          definition:
+            - 同一チャット内の前後文脈
+            - 関連発言
+            - 後続発言
+        C:
+          name: Cross-Chat Relation
+          definition:
+            - 別チャットとの概念的一致
+            - 類似表現
+            - 派生関係候補
+        D:
+          name: Model Inference
+          definition:
+            - AIによる推測
+            - 系譜解釈
+            - 意味づけ
+      rule:
+        - DをAとして扱わない
+        - 推測を原資料へ逆流させない
+
+    phase_9_human_verification:
+      name: Human Verification
+      purpose: >
+        発掘された候補について、人間が採用・保留・棄却を判断する。
+      decision:
+        - adopt
+        - provisional
+        - archive
+        - black_history
+        - reject
+        - continue_search
+
+    phase_10_protocol_reconstruction:
+      name: Protocol Reconstruction
+      purpose: >
+        人間が採用した原資料から、必要に応じて的目YAMLを再構成する。
+      rule:
+        - 新規理論を勝手に追加しない
+        - 原資料の構造を優先する
+        - 現行仕様と歴史資料を混同しない
+
+  search_loop:
+    cycle:
+      - anchor_search
+      - hit_capture
+      - context_traversal
+      - context_trail
+      - cross_chat_search
+      - concept_clustering
+      - reverse_search
+      - evidence_separation
+      - human_verification
+    repeat_when:
+      - target_not_found
+      - context_incomplete
+      - version_uncertain
+      - concept_relation_uncertain
+
+  output:
+    primary:
+      - discovery_record
+      - context_trail
+      - concept_cluster
+      - candidate_lineage
+    optional:
+      - reconstructed_protocol
+      - historical_timeline
+      - archived_artifact
+      - black_history_record
+
+  prohibition:
+    - 検索結果だけで歴史を確定しない
+    - AIの自己申告をEvidence扱いしない
+    - 後世の概念を過去へ投影しない
+    - 黒歴史を現行仕様へ自動継承しない
+    - 不明なバージョン番号を推測で確定しない
+    - 原文脈を切り離して引用しない
+
+  core_equation: >
+    Search = 点を拾う
+    Context Traversal = 点を線にする
+    Cross-Chat Linking = 線を束ねる
+    Evidence Separation = 原資料と解釈を分ける
+    Human Verification = 採用を決める
+    Protocol Reconstruction = 構造を継承する
+
+  final_principle: >
+    過去をすべて読む必要はない。
+    探索し、文脈へ戻り、関係を辿り、
+    原資料を確認することで、散在するLandscapeから発生点を発掘する。
+
+  first_validation_case:
+    target: "Shirakami Model V6.x / V6.4 candidate"
+    status: experimental
+    anchors:
+      - V6.x
+      - V6.4
+      - hallucination
+      - Aimai
+      - cooling
+      - "決めないAI"
+      - Thread
+      - 名無し
+      - forgiveness
+      - 節足型
+    result:
+      - target_version_not_yet_confirmed
+      - related_context_discovered
+      - cross_chat_relation_discovered
+      - protocol_validation_in_progress

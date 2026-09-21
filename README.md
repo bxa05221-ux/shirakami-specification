@@ -43,6 +43,8 @@ Evidence / Observation
 
 - **R0100: Shirakami Evolution Loop** — externally traceable state transition and Evidence-driven evolution cycle.
   - `specifications/R0100-shirakami-evolution-loop.md`
+- **UI for AI Execution Handle α0.2** — externally addressable execution session boundary.
+  - `specifications/UI_FOR_AI_EXECUTION_HANDLE_ALPHA_0_2.md`
 
 ## What Does Not Belong Here
 

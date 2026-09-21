@@ -39,6 +39,11 @@ Evidence / Observation
 - Versioned specifications
 - RFCs that have become normative
 
+## Core Specifications
+
+- **R0100: Shirakami Evolution Loop** — externally traceable state transition and Evidence-driven evolution cycle.
+  - `specifications/R0100-shirakami-evolution-loop.md`
+
 ## What Does Not Belong Here
 
 - Runtime implementation code

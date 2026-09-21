@@ -1,7 +1,7 @@
 # R0100: Shirakami Evolution Loop
 
 **Status:** Normative Draft  
-**Version:** 1.0  
+**Version:** 1.0.1  
 **Scope:** Shirakami Specification  
 **Role:** Core Evolution Loop / Evidence-driven state transition contract
 
@@ -529,6 +529,39 @@ Verification uncertainty is explicitly represented.
 `uncertainty` is preferred to a single confidence value because Shirakami requires unresolved uncertainty to remain externally visible rather than being compressed into apparent certainty.
 
 ---
+
+### 16.1 Mismatch Evidence
+
+A verification mismatch is externally represented as immutable Mismatch Evidence. It preserves the expected-vs-observed boundary instead of collapsing the discrepancy into a generic failure message.
+
+~~~yaml
+mismatch_evidence:
+  type: MISMATCH
+  protocol_id: PROTO-xxxxx
+  diff_ref: DIFF-xxxxx
+  expected: ...
+  observed: ...
+  uncertainty:
+    level: ...
+  source_evidence:
+    - EV-xxxxx
+  context:
+    snapshot: ...
+
+  status: mismatch
+  immutable: true
+~~~
+
+Normative requirements:
+
+- `expected` and `observed` MUST remain separately addressable.
+- `uncertainty` MUST remain externally visible.
+- A mismatch MAY reference a `Diff` through `diff_ref`.
+- A mismatch MUST remain queryable as `MISMATCH` Evidence.
+- The original mismatch MUST NOT be overwritten by a later Protocol Candidate or recovery result.
+- Recovery produces new Evidence linked to the original mismatch rather than mutating it.
+
+This makes discrepancy itself reusable input for subsequent Analysis and Protocol Candidate generation.
 
 ## 17. Runtime Contract
 

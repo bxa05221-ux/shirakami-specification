@@ -47,6 +47,8 @@ Evidence / Observation
   - `specifications/UI_FOR_AI_EXECUTION_HANDLE_ALPHA_0_2.md`
 - **One-Stroke Route Pipeline α0.2** — human-gated contract from structural route candidate to verified Runtime Evidence.
   - `specifications/ONE_STROKE_ROUTE_PIPELINE_ALPHA_0_2.md`
+- **Evolution Loop × One-Stroke Route Pipeline α0.3** — integration contract connecting structural route candidates to the canonical R0100 Human Gate and verified Evidence.
+  - `specifications/EVOLUTION_LOOP_ONE_STROKE_ROUTE_ALPHA_0_3.md`
 
 ## What Does Not Belong Here
 

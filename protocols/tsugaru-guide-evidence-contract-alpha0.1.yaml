@@ -1,0 +1,77 @@
+contract:
+  id: tsugaru-guide-evidence
+  name: TSUGARU GUIDE EVIDENCE CONTRACT
+  version: "0.1"
+  status: experimental
+  purpose: preserve observable changes and provenance generated through TSUGARU GUIDE journeys.
+
+principles:
+  - evidence_before_interpretation
+  - provenance_preserved
+  - success_and_non_conversion_are_both_observable
+  - uncertainty_preserved
+  - privacy_minimized
+  - human_decision_remains_human
+
+lifecycle:
+  - context_captured
+  - experience_observed
+  - change_recorded
+  - evidence_preserved
+  - reviewed
+  - service_or_protocol_updated
+
+record:
+  required:
+    - timestamp
+    - source
+    - observation
+    - provenance
+  optional:
+    - pre_context
+    - post_context
+    - outcome
+    - unresolved_questions
+    - interpretation
+    - follow_up
+
+outcomes:
+  allowed_examples:
+    - relocation_pursued
+    - relocation_not_pursued
+    - continued_exploration
+    - undecided
+    - service_referral
+  rule: outcome_is_not_a_quality_score
+
+resilience:
+  preserve:
+    - successful_patterns
+    - failed_approaches
+    - barriers
+    - seasonal_constraints
+    - infrastructure_changes
+    - recurring_questions
+    - verified_local_knowledge
+    - uncertainty
+
+privacy:
+  rules:
+    - minimize_personal_data
+    - prefer_anonymized_or_aggregated_program_evidence
+    - require_consent_for_nonessential_personal_records
+    - do_not_rank_people_by_suitability
+
+traceability:
+  github_role: knowledge_and_evidence_adapter
+  required_links:
+    - source_reference
+    - protocol_version
+    - observation_reference
+    - review_reference
+
+non_goals:
+  - surveillance
+  - applicant_scoring
+  - promotional_success_metrics_only
+  - rewriting_observations_into_facts_without_provenance

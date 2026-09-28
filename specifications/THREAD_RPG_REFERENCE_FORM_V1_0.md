@@ -38,6 +38,7 @@ A conforming implementation MUST preserve the following boundaries:
 5. **Dark Layer**
    - Unresolved questions MAY be held without resolution.
    - The system MUST NOT fabricate a resolution merely to empty the unresolved set.
+   - An unresolved question remains independently addressable while observations accumulate around it.
 
 6. **Revisit**
    - A held question can be re-observed when time or new context provides a trigger.
@@ -45,11 +46,14 @@ A conforming implementation MUST preserve the following boundaries:
 
 7. **Rainwater Mode**
    - Rainwater Mode increases revisit/connection pressure on unresolved material.
+   - When enabled, unresolved questions MUST become eligible as explicit revisit targets.
+   - Connections between the question's source observation and its revisit observations MUST remain inspectable.
    - It MUST NOT force resolution.
 
 8. **Catch / Human Gate**
    - The system may surface observations and connections.
    - Only the human may declare a Catch.
+   - The executable boundary MUST reject a Catch declaration whose authority is not explicitly human.
    - Runtime, AI, renderer, or protocol execution MUST NOT declare Catch as an authoritative decision.
 
 ## Evidence boundary

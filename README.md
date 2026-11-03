@@ -63,3 +63,17 @@ Evidence / Observation
 > Specification describes the boundary. Runtime serves the Landscape.
 
 The specification repository exists to keep that boundary explicit and model-independent.
+
+
+## License and Publication Boundary
+
+Unless a file states otherwise, the normative specifications, protocol contracts, schemas, compatibility rules, and documentation in this repository are licensed under [Creative Commons Attribution 4.0 International (CC BY 4.0)](LICENSE).
+
+CC BY 4.0 permits reuse, adaptation, and commercial use with attribution. It applies only to the public normative material in this repository. It does **not** grant rights to:
+
+- non-public native-language protocol details, prompts, operational methods, or product implementation;
+- private Landscape data, credentials, deployment configuration, or service infrastructure;
+- Shirakami names, logos, official certification, endorsement, or commercial branding;
+- patents, trade secrets, or other rights not expressly granted by CC BY 4.0.
+
+A document that needs protected implementation detail must link to its public normative boundary instead of reproducing that detail here. “Conforming” means meeting the stated public contract; it does not imply official certification, endorsement, or access to non-public implementations.
